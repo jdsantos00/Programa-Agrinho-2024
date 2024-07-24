@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #81f0ff; /* Alterando o fundo para azul */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center; /* Centralizando o conteúdo */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff0077;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #5d3883;
+        }
+
+        .arrow-up {
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+            margin-bottom: 10px;
+            transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+            position: relative;
+            top: -5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Projeto Agrinho Sobre Impacto da Dengue na Sociedade</h1>
+    <button id="btnMostrarIntroducao" onclick="mostrarIntroducao()">Mostrar Introdução</button>
+    <button id="btnMostrarInformacoes" onclick="mostrarTodasInformacoes()">Mostrar Informações sobre Dengue</button>
+
+    <div id="introducao_dengue" class="hidden">
+        <h2>Introdução</h2>
+        <p>A dengue é uma doença que afeta tanto áreas urbanas quanto rurais, representando um desafio significativo para a saúde pública. Nas áreas urbanas, a proliferação do mosquito Aedes aegypti é facilitada pela presença de recipientes de água parada, como pneus, vasos de plantas e recipientes descartáveis, que servem como criadouros para o mosquito.</p>
+        <p>Nas áreas rurais, a dengue também representa uma ameaça, especialmente em regiões onde há pouca infraestrutura para controle de vetores e acesso limitado a serviços de saúde. Além disso, as mudanças climáticas e o desmatamento podem contribuir para o aumento da incidência da doença, expandindo o habitat do mosquito transmissor.</p>
+        <p>Diante desse cenário, a prevenção e o controle da dengue são fundamentais para mitigar seu impacto na sociedade, envolvendo ações de eliminação de criadouros, uso de repelentes, manejo adequado de resíduos sólidos e educação da população sobre medidas preventivas.</p>
+        <span class="arrow-up"></span>
+    </div>
+
+    <div id="informacoes_dengue" class="hidden">
+        <h2>Informações sobre Dengue</h2>
+        <div>
+            <button onclick="mostrarInformacoes('oque_e_dengue')">O que é Dengue?</button>
+            <button onclick="mostrarInformacoes('transmissao_dengue')">Transmissão da Dengue</button>
+            <button onclick="mostrarInformacoes('como_dengue_afeta_corpo')">Como a Dengue Afeta o Corpo?</button>
+            <button onclick="mostrarInformacoes('prevencao_dengue')">Prevenção da Dengue</button>
+        </div>
+        <div>
+            <span class="arrow-up"></span>
+        </div>
+
+        <div id="oque_e_dengue" class="hidden">
+            <h3>O que é Dengue?</h3>
+            <p>A dengue é uma doença viral transmitida principalmente pela picada do mosquito Aedes aegypti.</p>
+        </div>
+
+        <div id="transmissao_dengue" class="hidden">
+            <h3>Transmissão da Dengue</h3>
+            <p>A dengue é transmitida pela picada do mosquito Aedes aegypti infectado, que adquire o vírus ao picar uma pessoa infectada. O mosquito então pode transmitir o vírus ao picar outras pessoas saudáveis.</p>
+        </div>
+
+        <div id="como_dengue_afeta_corpo" class="hidden">
+            <h3>Como a Dengue Afeta o Corpo?</h3>
+            <p>O vírus da dengue infecta as células do corpo humano, causando sintomas como febre alta, dores musculares e articulares, dor de cabeça, entre outros. Em casos mais graves, pode levar a complicações como a dengue hemorrágica, que pode ser fatal.</p>
+        </div>
+
+        <div id="prevencao_dengue" class="hidden">
+            <h3>Prevenção da Dengue</h3>
+            <ul>
+                <li>Eliminar recipientes que acumulem água parada, onde o mosquito deposita seus ovos.</li>
+                <li>Usar telas em portas e janelas para impedir a entrada do mosquito.</li>
+                <li>Usar repelentes regularmente, especialmente durante o dia.</li>
+                <li>Vestir roupas que cubram a maior parte do corpo.</li>
+                <li>Manter caixas d'água e piscinas devidamente tampadas.</li>
+            </ul>
+        </div>
+        <img scr="foto1.png" alt="prevenção">
+    </div>
+</div>
+     
+<script>
+    function mostrarIntroducao() {
+        var divIntroducao = document.getElementById("introducao_dengue");
+        var btnMostrarInformacoes = document.getElementById("btnMostrarInformacoes");
+        
+        // Alternar a classe 'hidden' para mostrar ou esconder a introdução
+        divIntroducao.classList.toggle("hidden");
+        
+        // Se a introdução está sendo mostrada, esconde o botão de informações
+        if (!divIntroducao.classList.contains("hidden")) {
+            btnMostrarInformacoes.classList.add("hidden");
+        } else {
+            // Se a introdução está escondida, mostra o botão de informações
+            btnMostrarInformacoes.classList.remove("hidden");
+        }
+    }
+
+    function mostrarTodasInformacoes() {
+        var divInformacoes = document.getElementById("informacoes_dengue");
+        
+        // Alternar a classe 'hidden' para mostrar ou esconder as informações
+        divInformacoes.classList.toggle("hidden");
+    }
+
+    function mostrarInformacoes(id) {
+        var divInformacoes = document.getElementById(id);
+        
+        // Alternar a classe 'hidden' para mostrar ou esconder as informações
+        divInformacoes.classList.toggle("hidden");
+    }
+</script>
+
+</body>
+</html>
