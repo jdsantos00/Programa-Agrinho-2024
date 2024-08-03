@@ -9,14 +9,19 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #81f0ff; /* Alterando o fundo para azul */
+            background-color: #f0f0f0;
+            background-image: url('foto1.png'); /* Adiciona a imagem de fundo */
+            background-size: cover; /* Ajusta o tamanho da imagem de fundo para cobrir todo o fundo */
+            background-position: center; /* Centraliza a imagem de fundo */
+            background-repeat: no-repeat; /* Não repete a imagem de fundo */
         }
 
         .container {
-            max-width: 800px;
+            max-width: 800px; /* Corrigido de 'max-ain' para 'max-width' */
             margin: 20px auto;
             padding: 0 20px;
-            text-align: center; /* Centralizando o conteúdo */
+            background-color: rgba(255, 255, 255, 0.8); /* Adiciona um fundo branco semitransparente para melhorar a legibilidade */
+            border-radius: 8px; /* Adiciona bordas arredondadas ao container */
         }
 
         .hidden {
@@ -26,18 +31,20 @@
         button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #ff0077;
+            background-color: #564caf;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            transition: background-color 0.3s ease-in-out;
+            transition: background-color 0.3s ease; /* Adiciona uma transição suave para a mudança de cor */
         }
 
         button:hover {
-            background-color: #5d3883;
+            background-color: #7a4caf;
+        }
+
+        button:active {
+            background-color: #3b2a7f;
         }
 
         .arrow-up {
@@ -50,6 +57,18 @@
             -webkit-transform: rotate(-135deg);
             position: relative;
             top: -5px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+                margin-right: 5px;
+            }
         }
     </style>
 </head>
@@ -105,7 +124,7 @@
                 <li>Manter caixas d'água e piscinas devidamente tampadas.</li>
             </ul>
         </div>
-        <img scr="foto1.png" alt="prevenção">
+        <img src="foto1.png" alt="Prevenção da Dengue" style="max-width: 100%; height: auto;">
     </div>
 </div>
      
@@ -114,7 +133,7 @@
         var divIntroducao = document.getElementById("introducao_dengue");
         var btnMostrarInformacoes = document.getElementById("btnMostrarInformacoes");
         
-        // Alternar a classe 'hidden' para mostrar ou esconder a introdução
+        // Alterna a classe 'hidden' para mostrar ou esconder a introdução
         divIntroducao.classList.toggle("hidden");
         
         // Se a introdução está sendo mostrada, esconde o botão de informações
@@ -129,14 +148,14 @@
     function mostrarTodasInformacoes() {
         var divInformacoes = document.getElementById("informacoes_dengue");
         
-        // Alternar a classe 'hidden' para mostrar ou esconder as informações
+        // Alterna a classe 'hidden' para mostrar ou esconder as informações
         divInformacoes.classList.toggle("hidden");
     }
 
     function mostrarInformacoes(id) {
         var divInformacoes = document.getElementById(id);
         
-        // Alternar a classe 'hidden' para mostrar ou esconder as informações
+        // Alterna a classe 'hidden' para mostrar ou esconder as informações
         divInformacoes.classList.toggle("hidden");
     }
 </script>
